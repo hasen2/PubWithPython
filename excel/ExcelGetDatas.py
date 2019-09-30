@@ -12,24 +12,23 @@ class ExcelGetDatas():
         self.workbook = xlrd.open_workbook(self.exceladdress)
         self.sheetnamelist = self.workbook.sheet_names()
 
-	def set_type(ctype,cellvalue):
-            """
-            格式处理
-            :param ctype: 单元格类型，#  0. empty（空的）,1 string（text）, 2 number, 3 date, 4 boolean, 5 error， 6 blank（空白表格）
-            :param cellvalue: 单元格内容
-            :return: 返回转码后的单元格内容
-            """
-            if ctype == 2 and cellvalue % 1 == 0:  # 如果是整形
-                cellvalue = int(cellvalue)
-            elif ctype == 3:  # =3 为时间格式，转成datetime对象后再转化为字符串格式
-                # cellvalue = xlrd.xldate.xldate_as_datetime(cellvalue, 0)  # 0代表以1900-01-01为基准，1代表以1904-01-01为基准
-                # cellvalue = cellvalue.strftime('%Y-%m-%d')
-                cellvalue = xlrd.xldate.xldate_as_datetime(cellvalue, 0).__str__()  # 0代表以1900-01-01为基准，1代表以1904-01-01为基准
+    def set_type(self,ctype,cellvalue):
+        """
+        格式处理
+        :param ctype: 单元格类型，#  0. empty（空的）,1 string（text）, 2 number, 3 date, 4 boolean, 5 error， 6 blank（空白表格）
+        :param cellvalue: 单元格内容
+        :return: 返回转码后的单元格内容
+        """
+        if ctype == 2 and cellvalue % 1 == 0:  # 如果是整形
+            cellvalue = int(cellvalue)
+        elif ctype == 3:  # =3 为时间格式，转成datetime对象后再转化为字符串格式
+            # cellvalue = xlrd.xldate.xldate_as_datetime(cellvalue, 0)  # 0代表以1900-01-01为基准，1代表以1904-01-01为基准
+            # cellvalue = cellvalue.strftime('%Y-%m-%d')
+            cellvalue = xlrd.xldate.xldate_as_datetime(cellvalue, 0).__str__()  # 0代表以1900-01-01为基准，1代表以1904-01-01为基准
+        elif ctype == 4:
+            cellvalue = True if cellvalue == 1 else False
+        return cellvalue
 
-            elif ctype == 4:
-                cellvalue = True if cellvalue == 1 else False
-            return cellvalue
-		
     def get_info2(self,searchsheetname=None):
         """
         获取所打开excel文件的所有内容
@@ -40,7 +39,6 @@ class ExcelGetDatas():
         获取所打开excel文件的所有内容
         :return: 所有内容，以字典形式存储，key为sheet的名字，value为每个sheet的内容（列表格式）
         """
-
         allinfosdict = {}  # 存储本文件的所有内容
         for sheetname in self.sheetnamelist:
             allinfoslist = []  # 存储本sheet页的内容
@@ -66,6 +64,7 @@ class ExcelGetDatas():
         print(allinfosdict)
 
         return allinfosdict
+
 
 
 
