@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ExcelGetDatas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ExcelGetDatas</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:e%3A%5Cgithub%5Cpubwithpython%5Cexcel%5Cexcelgetdatas.py">e:\github\pubwithpython\excel\excelgetdatas.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;获取excel数据</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="pprint.html">pprint</a><br>
+</td><td width="25%" valign=top><a href="xlrd.html">xlrd</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ExcelGetDatas.html#ExcelGetDatas">ExcelGetDatas</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ExcelGetDatas">class <strong>ExcelGetDatas</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ExcelGetDatas">ExcelGetDatas</a>(exceladdress='C:\\Users\\admin\\Desktop\\test.xls')<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ExcelGetDatas-__init__"><strong>__init__</strong></a>(self, exceladdress='C:\\Users\\admin\\Desktop\\test.xls')</dt><dd><tt>打开工作表格，获取及统计相关信息<br>
+:param&nbsp;exceladdress:</tt></dd></dl>
+
+<dl><dt><a name="ExcelGetDatas-get_info2"><strong>get_info2</strong></a>(self, searchsheetname=None)</dt><dd><tt>获取所打开excel文件的所有内容<br>
+:param&nbsp;searchsheetname:&nbsp;如果传入了需要获取内容的sheetname则只获取单个sheet的内容,如果未传值，则获取整个excel的内容<br>
+:return:&nbsp;以字典形式存储，key为sheet的名字，value为每个sheet的内容（列表格式）</tt></dd></dl>
+
+<dl><dt><a name="ExcelGetDatas-set_type"><strong>set_type</strong></a>(self, ctype, cellvalue)</dt><dd><tt>格式处理<br>
+:param&nbsp;ctype:&nbsp;单元格类型，#&nbsp;&nbsp;0.&nbsp;empty（空的）,1&nbsp;string（text）,&nbsp;2&nbsp;number,&nbsp;3&nbsp;date,&nbsp;4&nbsp;boolean,&nbsp;5&nbsp;error，&nbsp;6&nbsp;blank（空白表格）<br>
+:param&nbsp;cellvalue:&nbsp;单元格内容<br>
+:return:&nbsp;返回转码后的单元格内容</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
