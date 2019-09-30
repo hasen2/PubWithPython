@@ -13,7 +13,6 @@ class ExcelSetDatas():
         self.excelpath =exceladdress
         self.rbook = xlrd.open_workbook(self.excelpath,formatting_info=True)#打开文件
         self.wbook = copy.copy(self.rbook)#复制文件并保留格式
-        self.w_sheet = self.wbook.get_sheet(0)#索引sheet表
 
     def set_datas(self,rowindex,colindex,value,sheetid=0):
         """
