@@ -12,17 +12,7 @@ class ExcelGetDatas():
         self.workbook = xlrd.open_workbook(self.exceladdress)
         self.sheetnamelist = self.workbook.sheet_names()
 
-    def get_info2(self,searchsheetname=None):
-        """
-        获取所打开excel文件的所有内容
-        :param searchsheetname: 如果传入了需要获取内容的sheetname则只获取单个sheet的内容,如果未传值，则获取整个excel的内容
-        :return: 以字典形式存储，key为sheet的名字，value为每个sheet的内容（列表格式）
-        """
-        """
-        获取所打开excel文件的所有内容
-        :return: 所有内容，以字典形式存储，key为sheet的名字，value为每个sheet的内容（列表格式）
-        """
-        def set_type(ctype,cellvalue):
+	def set_type(ctype,cellvalue):
             """
             格式处理
             :param ctype: 单元格类型，#  0. empty（空的）,1 string（text）, 2 number, 3 date, 4 boolean, 5 error， 6 blank（空白表格）
@@ -39,6 +29,17 @@ class ExcelGetDatas():
             elif ctype == 4:
                 cellvalue = True if cellvalue == 1 else False
             return cellvalue
+		
+    def get_info2(self,searchsheetname=None):
+        """
+        获取所打开excel文件的所有内容
+        :param searchsheetname: 如果传入了需要获取内容的sheetname则只获取单个sheet的内容,如果未传值，则获取整个excel的内容
+        :return: 以字典形式存储，key为sheet的名字，value为每个sheet的内容（列表格式）
+        """
+        """
+        获取所打开excel文件的所有内容
+        :return: 所有内容，以字典形式存储，key为sheet的名字，value为每个sheet的内容（列表格式）
+        """
 
         allinfosdict = {}  # 存储本文件的所有内容
         for sheetname in self.sheetnamelist:
@@ -54,7 +55,7 @@ class ExcelGetDatas():
                     ctype = sheet.cell(rownum, colnum).ctype
                     cellvalue = sheet.cell_value(rownum, colnum)
                     # 根据不同的数据类型，处理数据
-                    cellvalue = set_type(ctype,cellvalue)
+                    cellvalue = self.set_type(ctype,cellvalue)
 
                     # 存储每一行的数据
                     rowinfolist.append(cellvalue)
